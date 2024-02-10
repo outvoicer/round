@@ -12,8 +12,6 @@ module.exports = function round(input) {
   }
   // MAKE INPUT TO A STRING, AND REPLACE ',' WITH '.' JUST IN CASE
   const entry = String(input).replace(',', '.')
-  // IF DOES NOT START WITH -, EXPECT INPUT TO BE POSITIVE NUMBER
-  const positive = entry.indexOf('-') !== 0
   // DETERMINE IF IT'S A NUMBER
   const notNumber = isNaN(entry)
   if (notNumber) {
@@ -30,7 +28,7 @@ module.exports = function round(input) {
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
       // HAS OVER TWO DECIMALS
-      output = roundThreeDecimals(entry, comma, integer, positive)
+      output = roundThreeDecimals(entry, comma, integer)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
       output = entry

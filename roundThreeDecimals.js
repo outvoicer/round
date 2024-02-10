@@ -1,7 +1,7 @@
 
 'use strict'
 
-module.exports = function roundThreeDecimals (entry, comma, integer, positive) {
+module.exports = function roundThreeDecimals (entry, comma, integer) {
   // HANDLE NUMBER NUMBER, THAT HAS OVER TWO DECIMALS
   // ON ERROR RETURN -0.00
   let output = '-0.00'
@@ -20,6 +20,8 @@ module.exports = function roundThreeDecimals (entry, comma, integer, positive) {
       if (firstDecimal === 10) {
         // IF THE FIRST DECIMAL BECAME 10, MAKE IT A ZERO AND INCREASE THE MAIN NUMBER
         firstDecimal = 0
+        // IF DOES NOT START WITH -, EXPECT INPUT TO BE POSITIVE NUMBER
+        const positive = entry.indexOf('-') !== 0
         if (positive) {
           // IF IT'S POSITIVE, COUNT UP
           integer = Number(integer) + 1
