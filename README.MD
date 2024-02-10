@@ -16,6 +16,14 @@ Reasoning for the library is that native toFixed() uses bankers rounding and tie
 Number(1.265).toFixed(2) // which returns 1.26
 ```
 
+Tests:
+
+```
+node test.js
+// or with nodemon
+npm run test
+```
+
 Known unhandled cases:  
 No integer - ',0'  
 multiple commas - '199,99.99'  
