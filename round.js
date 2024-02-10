@@ -7,12 +7,20 @@ module.exports = function round(input) {
   // OUTPUT USES HALF WAY UP ROUNDING (TIES AWAY FROM ZERO) UNLIKE toFixed(), WHICH USES BANKERS ROUNDING
   // AND EXPORTS STRINGED VERSION OF NUMBER WITH TWO DECIMAL PRECISION,
   // AS ONE MIGHT EXPECT FROM THE REPRESENTATION OF MONEY
+  // ON ERROR RETURNS '-0.00'
   let output = false
+  if (input === 0) {
+    input = '0.00'
+  }
   // DETERMINE, IF NUMBER STARTS WITH A MINUS
-  const negative = String(input).indexOf('-') === 0
-  const positive = !negative
+  const positive = String(input).indexOf('-') !== 0
   // MAKE INPUT TO A STRING, AND REPLACE ',' WITH '.' JUST IN CASE
   const entry = String(input).replace(',', '.')
+  // DETERMINE IF IT'S A NUMBER
+  const notNumber = isNaN(entry)
+  if (notNumber) {
+    return '-0.00'
+  }
   // WHERE IS COMMA?
   const comma = entry.indexOf('.')
   if (comma > -1) {

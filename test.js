@@ -75,6 +75,11 @@ const tests = [
   [ '-2.500', '-2.50' ],
   [ '-2.501', '-2.50' ],
   [ '9.995', '10.00' ],
+  [ 'hello', '-0.00' ],
+  [ [['1'], ['a']], '-0.00' ],
+  [ {success: true}, '-0.00'],
+  [ 0, '0.00']
+//  [ console.log('trigger'), '-0.00' ],
 ]
 
 function doIt(input, result) {
@@ -86,5 +91,9 @@ function doIt(input, result) {
 }
 
 for (let i = 0; i < tests.length; i++) {
-  doIt(tests[i][0], tests[i][1])
+  if (tests[i]) {
+    doIt(tests[i][0], tests[i][1])
+  } else {
+    console.log('❌ missing input: ' + tests[i])
+  }
 }
