@@ -1,5 +1,6 @@
 
 'use strict'
+
 /*
   // INPUT IS A NUMBER, POSSIBLY WITH COMMA
   // OUTPUT USES HALF WAY UP ROUNDING (TIES AWAY FROM ZERO) UNLIKE toFixed(), WHICH USES BANKERS ROUNDING
@@ -7,6 +8,7 @@
   // AS ONE MIGHT EXPECT FROM THE REPRESENTATION OF MONEY
   // ON ERROR RETURNS '-0.00'
 */
+const roundThreeDecimals = require('./roundThreeDecimals')
 
 module.exports = function round(input) {
   // INPUT: '1.265', OUTPUT: '1.27' OR '-0.00' ON ERROR
@@ -33,7 +35,7 @@ module.exports = function round(input) {
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
       // HAS OVER TWO DECIMALS
-      output = handleThreeDecimals(entry, comma, integer, positive)
+      output = roundThreeDecimals(entry, comma, integer, positive)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
       output = entry

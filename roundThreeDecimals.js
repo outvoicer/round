@@ -1,6 +1,7 @@
 
 'use strict'
-module.exports = function handleThreeDecimals (entry, comma, integer, positive) {
+
+module.exports = function roundThreeDecimals (entry, comma, integer, positive) {
   // HANDLE NUMBER NUMBER, THAT HAS OVER TWO DECIMALS
   // ON ERROR RETURN -0.00
   let output = '-0.00'
