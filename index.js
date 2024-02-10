@@ -1,13 +1,6 @@
 
 'use strict'
 
-/*
-  // INPUT IS A NUMBER, POSSIBLY WITH COMMA
-  // OUTPUT USES HALF WAY UP ROUNDING (TIES AWAY FROM ZERO) UNLIKE toFixed(), WHICH USES BANKERS ROUNDING
-  // AND EXPORTS STRINGED VERSION OF NUMBER WITH TWO DECIMAL PRECISION,
-  // AS ONE MIGHT EXPECT FROM THE REPRESENTATION OF MONEY
-  // ON ERROR RETURNS '-0.00'
-*/
 const roundThreeDecimals = require('./roundThreeDecimals')
 
 module.exports = function round(input) {
@@ -16,16 +9,17 @@ module.exports = function round(input) {
   if (input === 0) {
     input = '0.00'
   }
-  // DETERMINE, IF NUMBER STARTS WITH A MINUS
-  const positive = String(input).indexOf('-') !== 0
   // MAKE INPUT TO A STRING, AND REPLACE ',' WITH '.' JUST IN CASE
   const entry = String(input).replace(',', '.')
+  // IF DOES NOT START WITH -, EXPECT INPUT TO BE POSITIVE NUMBER
+  const positive = entry.indexOf('-') !== 0
   // DETERMINE IF IT'S A NUMBER
   const notNumber = isNaN(entry)
   if (notNumber) {
+    // AND RETURN WITH "ERROR"
     return '-0.00'
   }
-  // WHERE IS COMMA?
+  // FIND COMMA POSITION
   const comma = entry.indexOf('.')
   // INTEGER IS WHOLE NUMBER, DATA BERFORE THE COMMA
   let integer = entry.substring(0, comma)

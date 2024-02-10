@@ -10,7 +10,7 @@ round(1.265) // returns '1.27'
 round(-1.265) // returns '-1.27'
 ```
 
-Reasoning for the library, is that native toFixed() uses bankers rounding and ties towards an even number:  
+Reasoning for the library is that native toFixed() uses bankers rounding and ties towards an even number:  
 
 ```
 Number(1.265).toFixed(2) // which returns 1.26
