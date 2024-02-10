@@ -1,4 +1,4 @@
-const round = require('./round')
+const round = require('./index')
 
 const tests = [
   [ 1.265, '1.27'],
