@@ -7,7 +7,6 @@
   // AS ONE MIGHT EXPECT FROM THE REPRESENTATION OF MONEY
   // ON ERROR RETURNS '-0.00'
 */
-
 function handleThreeDecimals (entry, comma, integer, positive) {
   // HAS OVER TWO DECIMALS
   let output = '-0.00'
@@ -42,7 +41,7 @@ function handleThreeDecimals (entry, comma, integer, positive) {
 }
 
 module.exports = function round(input) {
-  // INPUT: '1.265', OUTPUT: '1.27'
+  // INPUT: '1.265', OUTPUT: '1.27' OR '-0.00' ON ERROR
   let output = '-0.00'
   if (input === 0) {
     input = '0.00'
