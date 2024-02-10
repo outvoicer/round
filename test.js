@@ -87,6 +87,7 @@ const tests = [
   [ '-0.00', '-0.00'],
   [ ',', '-0.00'],
   [ '0,0', '0.00'],
+  [ '0', '0.00'],
 /*
   // THESE DO NOT "WORK", AS -0 WILL REACH FUNCTION AS 0
   [ -0, '-0.00'],

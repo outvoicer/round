@@ -7,6 +7,7 @@ module.exports = function round(input) {
   // INPUT: '1.265', OUTPUT: '1.27' OR '-0.00' ON ERROR
   let output = '-0.00'
   if (input === 0) {
+    // MAKE SURE, 0 IS NOT HANDLED AS false
     input = '0.00'
   }
   // MAKE INPUT TO A STRING, AND REPLACE ',' WITH '.' JUST IN CASE
