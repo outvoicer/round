@@ -7,38 +7,6 @@
   // AS ONE MIGHT EXPECT FROM THE REPRESENTATION OF MONEY
   // ON ERROR RETURNS '-0.00'
 */
-function handleThreeDecimals (entry, comma, integer, positive) {
-  // HAS OVER TWO DECIMALS
-  let output = '-0.00'
-  // IF OVER TWO DECIMALS, MAP THE INPUT
-  , firstDecimal = entry[comma + 1]
-  , secondDecimal = entry[comma + 2]
-  // THIRD DECIMAL, OUR ONLY CONSTANT
-  const thirdDecimal = entry[comma + 3]
-  if (thirdDecimal >= 5) {
-    // IF THE THIRD DECIMAL IS 5 OR BIGGER, ADD + 1 TO SECOND DECIMAL
-    secondDecimal = Number(secondDecimal) + 1
-    if (secondDecimal === 10) {
-      // IF SECOND DECIMAL BECAME 10, MAKE IT A ZERO AND CALL THE MANAGER
-      secondDecimal = 0
-      firstDecimal = Number(firstDecimal) + 1
-      if (firstDecimal === 10) {
-        // IF THE FIRST DECIMAL BECAME 10, MAKE IT A ZERO AND INCREASE THE MAIN NUMBER
-        firstDecimal = 0
-        if (positive) {
-          // IF IT'S POSITIVE, COUNT UP
-          integer = Number(integer) + 1
-        } else {
-          // IF IT'S NEGATIVE, COUNT DOWN
-          integer = Number(integer) - 1
-        }
-      }
-    }
-  }
-  // COMPOSE THE ROUNDED NUMBER
-  output = String(integer) + '.' + firstDecimal + secondDecimal
-  return output
-}
 
 module.exports = function round(input) {
   // INPUT: '1.265', OUTPUT: '1.27' OR '-0.00' ON ERROR
