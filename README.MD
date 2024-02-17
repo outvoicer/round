@@ -35,5 +35,12 @@ Input that returns error ('-0.00'):
 ✅ 'hello' is -0.00          // string is NaN
 ✅ 1,a is -0.00              // input is NaN
 ✅ [object Object] is -0.00  // object is NaN
+✅ 456 465  is -0.00         // Numbers with spaces
+✅ €50 is -0.00              // Numbers with currency
+✅ 50% is -0.00               // Numbers with %
+✅ 12:30 is -0.00             // Numbers that are time 
 
-✅ '-0.00' is -0.00            // input -0.00 also returns -0.00
+
+Interesting exeptions:  
+✅ '-0.00' is -0.00          // input '-0.00' also returns '-0.00'
+✅ -0.00 is 0.00             // but -0.00 returns 0.00, as JS turns it into 0 in the process
