@@ -24,6 +24,16 @@ node test.js
 npm run test
 ```
 
-Known unhandled cases:  
-No integer - ',0'  
-multiple commas - '199,99.99'  
+
+Input that returns error ('-0.00'):  
+
+✅ '', is -0.00              // empty entry
+✅ ',' is -0.00             // only comma
+✅   is -0.00                // undefined
+✅ undefined is -0.00        // undefined
+✅ 33,333,900.987 is -0.00   // multiple commas is NaN
+✅ 'hello' is -0.00          // string is NaN
+✅ 1,a is -0.00              // input is NaN
+✅ [object Object] is -0.00  // object is NaN
+
+✅ '-0.00' is -0.00            // input -0.00 also returns -0.00

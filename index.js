@@ -10,8 +10,9 @@ module.exports = function round(input) {
     // MAKE SURE 0 IS NOT HANDLED AS false
     input = '0.00'
   }
-  // MAKE INPUT TO A STRING, AND REPLACE ',' WITH '.' JUST IN CASE
-  const entry = String(input).replace(',', '.')
+  // MAKE INPUT TO A STRING, TRIM IT AND REPLACE ',' WITH '.' JUST IN CASE
+  const entry = String(input).trim().replace(',', '.')
+
   // DETERMINE IF IT'S A NUMBER
   const notNumber = isNaN(entry)
   if (notNumber) {
@@ -24,6 +25,13 @@ module.exports = function round(input) {
   let integer = entry.substring(0, comma)
   if (comma > -1) {
     // COMMA EXISTS
+    // HANDLE POSSIBLE MISSING INTEGER FIRST
+    let zero = ''
+    if (comma === 0) {
+      // NUMBER STARTS WITH COMMA, ADD INTEGER
+      integer = '0'
+      zero = '0'
+    }
     // BUT HOW MANY DECIMALS DO WE HAVE?
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
@@ -31,22 +39,26 @@ module.exports = function round(input) {
       output = roundThreeDecimals(entry, comma, integer)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
-      output = entry
+      output = zero + entry
     } else if (decimals === 1) {
       // IT HAS 1 DECIMAL, ADD A ZERO TO IT
-      output = entry + '0'
+      output = zero + entry + '0'
     } else {
       // ZERO PLACE AFTER COMMA, PRESUMABLY '1,'
       output = integer + '.00'
     }
   } else {
-    // NO COMMA
+      // NO COMMA
     if (input == undefined) {
       output = '-0.00'
     } else if (input == '') {
       output = '-0.00'
     } else {
-      output = entry + '.00'
+      if (entry) {
+        output = entry + '.00'
+      } else {
+        output = '-0.00'
+      }
     }
   }
   return output
