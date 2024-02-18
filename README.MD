@@ -34,18 +34,20 @@ npm run test
 
 ## Errors
 Generally everything, that isNaN returns error ('-0.00'):   
-✅ '', is -0.00               // empty entry  
-✅ ',' is -0.00               // only comma  
-✅   is -0.00                 // undefined  
-✅ undefined is -0.00         // undefined  
-✅ 33,333,900.987 is -0.00    // multiple commas is NaN  
-✅ 'hello' is -0.00           // string is NaN  
-✅ 1,a is -0.00               // input is NaN  
-✅ [object Object] is -0.00   // object is NaN  
-✅ '1 000 000 000'  is -0.00  // Numbers with spaces  
-✅ €50 is -0.00               // Numbers with currency  
-✅ 50% is -0.00               // Numbers with %  
-✅ 12:30 is -0.00             // Numbers that are time  
+✅ '', is '-0.00'               // empty entry  
+✅ ',' is '-0.00'               // only comma  
+✅   is '-0.00'                 // undefined  
+✅ undefined is '-0.00'         // undefined  
+✅ 33,333,900.987 is '-0.00'    // multiple commas is NaN  
+✅ 'hello' is '-0.00'           // string is NaN  
+✅ 1,a is '-0.00'               // input is NaN  
+✅ [object Object] is '-0.00'   // object is NaN  
+✅ '1 000 000 000'  is '-0.00'  // Numbers with spaces  
+✅ €50 is '-0.00'               // Numbers with currency  
+✅ 50% is '-0.00'               // Numbers with %  
+✅ 12:30 is '-0.00'             // Numbers that are time  
+✅ 700_000_000 is '-0.00'       // Numbers with _ as thousand separator  
+✅ 𑁖𑁔𑁗𑁙 is '-0.00'              // 5367 in Brahmi numberals is also NaN  
 
 Interesting exeptions:  
 ✅ '-0.00' is '-0.00'          // input '-0.00' also returns '-0.00'  
