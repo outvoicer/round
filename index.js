@@ -14,10 +14,8 @@ module.exports = function round(input) {
   }
   // MAKE INPUT TO A STRING, TRIM IT AND REPLACE ',' WITH '.' JUST IN CASE
   const entry = String(input).trim().replace(',', '.')
-  // DETERMINE IF IT'S A NUMBER
-  const notNumber = isNaN(entry)
-  if (notNumber) {
-    // AND RETURN WITH "ERROR" IF IT IS A NUMBER
+  if (isNaN(entry)) {
+    // AND RETURN WITH "ERROR" IF IT AIN'T A NUMBER
     return '-0.00'
   }
   // FIND COMMA POSITION
