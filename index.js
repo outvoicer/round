@@ -1,7 +1,7 @@
 
 'use strict'
 
-const roundThreeDecimals = require('./roundThreeDecimals')
+const roundOverTwoDecimals = require('./roundOverTwoDecimals')
 
 module.exports = function round(input) {
   /*
@@ -24,8 +24,8 @@ module.exports = function round(input) {
   const comma = entry.indexOf('.')
   // INTEGER IS WHOLE NUMBER, DATA BERFORE THE COMMA
   let integer = entry.substring(0, comma)
-  // COMMA EXISTS
   let zero = ''
+  // COMMA EXISTS
   if (comma > -1) {
     if (comma === 0) {
       // HANDLE MISSING INTEGER EXCEPTION (,254) FIRST
@@ -41,7 +41,7 @@ module.exports = function round(input) {
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
       // HAS OVER TWO DECIMALS
-      output = roundThreeDecimals(entry, comma, integer)
+      output = roundOverTwoDecimals(entry, comma, integer)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
       output = zero + entry
