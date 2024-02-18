@@ -19,7 +19,8 @@ Number(1.265).toFixed(2) // which returns 1.26
 This library:  
 transforms the input to string,  
 trims it,  
-replaces the first ',' with a '.'.  
+replaces the first ',' with a '.'  
+  
 Then it:  
 performs isNaN test,  
 finds the position of comma,  
