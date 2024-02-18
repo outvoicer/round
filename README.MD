@@ -1,11 +1,9 @@
 
 Library for rounding with two comma precision in JS for representation of monetary units.  
-  
+
 Performs half way up rounding (ties away from zero).  
 Exports the number as a string with two comma precision.   
 On error returns '-0.00'.  
-
-The practical need for this came from frontend often needing to convert Number 12.3 to '12.30'.
 
 ```
 round(1.265) // returns '1.27'
@@ -16,7 +14,10 @@ Reasoning for the library is that JS native toFixed() uses bankers rounding and 
 
 ```
 Number(1.265).toFixed(2) // which returns 1.26
-```  
+```   
+
+The other practical need for this library came from frontend often needing to convert Number 12.3 to '12.30'.  
+
 ## Usage    
 ```
 round('456.465')                        // returns '456.47'  
@@ -40,7 +41,7 @@ node test.js
 // or with nodemon
 npm run test
 ```
-
+  
 ## Errors
 Generally all isNaN input returns error ('-0.00'):   
 ✅ '', is '-0.00'               // empty entry  
