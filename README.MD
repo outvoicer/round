@@ -48,5 +48,5 @@ Generally everything, that isNaN returns error ('-0.00'):
 ✅ 12:30 is -0.00             // Numbers that are time  
 
 Interesting exeptions:  
-✅ '-0.00' is -0.00          // input '-0.00' also returns '-0.00'
+✅ '-0.00' is -0.00          // input '-0.00' also returns '-0.00'  
 ✅ -0.00 is 0.00             // but -0.00 returns 0.00, as JS turns it into 0 in the process
