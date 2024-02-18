@@ -1,23 +1,31 @@
 
-Library for safer rounding with two comma precision in JS for calculations representing monetary units.  
-
-Performs half way up rounding (ties away from zero):  
-Exports the number always as a string with two comma precision.   
+Library for rounding with two comma precision in JS for representation of monetary units.  
+  
+Performs half way up rounding (ties away from zero).  
+Exports the number as a string with two comma precision.   
 On error returns '-0.00'.  
+
+The practical need for this came from frontend often needing to convert Number 12.3 to '12.30'.
 
 ```
 round(1.265) // returns '1.27'
 round(-1.265) // returns '-1.27'
 ```
 
-Reasoning for the library is that native toFixed() uses bankers rounding and ties towards an even number:  
+Reasoning for the library is that JS native toFixed() uses bankers rounding and ties towards an even number:  
 
 ```
 Number(1.265).toFixed(2) // which returns 1.26
 ```  
+## Usage    
+```
+round('456.465')                        // returns '456.47'  
+round(Number(subtotal) + Number(VAT))   // returns total  
+```  
+
 ## General logic  
-This library:  
-transforms the input to string,  
+
+This library transforms the input to string,  
 trims it,  
 replaces the first ',' with a '.'  
 
