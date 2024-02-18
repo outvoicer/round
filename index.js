@@ -4,7 +4,9 @@
 const roundThreeDecimals = require('./roundThreeDecimals')
 
 module.exports = function round(input) {
-  // INPUT: '1.265', OUTPUT: '1.27' OR '-0.00' ON ERROR
+  /*
+    PPEPARE input
+  */
   let output = '-0.00'
   if (input === 0) {
     // MAKE SURE 0 IS NOT HANDLED AS false
@@ -12,26 +14,29 @@ module.exports = function round(input) {
   }
   // MAKE INPUT TO A STRING, TRIM IT AND REPLACE ',' WITH '.' JUST IN CASE
   const entry = String(input).trim().replace(',', '.')
-
   // DETERMINE IF IT'S A NUMBER
   const notNumber = isNaN(entry)
   if (notNumber) {
-    // AND RETURN WITH "ERROR"
+    // AND RETURN WITH "ERROR" IF IT IS A NUMBER
     return '-0.00'
   }
   // FIND COMMA POSITION
   const comma = entry.indexOf('.')
   // INTEGER IS WHOLE NUMBER, DATA BERFORE THE COMMA
   let integer = entry.substring(0, comma)
+  // COMMA EXISTS
+  let zero = ''
   if (comma > -1) {
-    // COMMA EXISTS
-    // HANDLE POSSIBLE MISSING INTEGER FIRST
-    let zero = ''
     if (comma === 0) {
-      // NUMBER STARTS WITH COMMA, ADD INTEGER
+      // HANDLE MISSING INTEGER EXCEPTION (,254) FIRST
+      // SET INTEGER AS ZERO
       integer = '0'
+      // ADD A ZERO BEFORE ENTRY FOR CASES WHERE INTEGER IS NOT USED
       zero = '0'
     }
+    /*
+      PERFORM ROUNDING
+    */
     // BUT HOW MANY DECIMALS DO WE HAVE?
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
