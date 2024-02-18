@@ -16,11 +16,14 @@ Reasoning for the library is that native toFixed() uses bankers rounding and tie
 Number(1.265).toFixed(2) // which returns 1.26
 ```  
 ## General logic  
-This library, makes the input to string, trims it and replaces the first ',' with a '.'.  
+This library:  
+transforms the input to string,  
+trims it,  
+replaces the first ',' with a '.'.  
 Then it:  
 performs isNaN test,  
 finds the position of comma,  
-and  performs the rounding operations.      
+and performs the rounding operation.      
 
 ## Tests:
 ```
