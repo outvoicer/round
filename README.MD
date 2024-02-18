@@ -3,7 +3,7 @@ Library for safer rounding with two comma precision in JS for calculations repre
 
 Performs half way up rounding (ties away from zero):  
 Exports the number always as a string with two comma precision.   
-On error rounds to '-0.00'.  
+On error returns '-0.00'.  
 
 ```
 round(1.265) // returns '1.27'
