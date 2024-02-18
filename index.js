@@ -23,13 +23,13 @@ module.exports = function round(input) {
   // INTEGER IS WHOLE NUMBER, DATA BERFORE THE COMMA
   let integer = entry.substring(0, comma)
   let zero = ''
-  // COMMA EXISTS
   if (comma > -1) {
+    // COMMA EXISTS
     if (comma === 0) {
-      // HANDLE MISSING INTEGER EXCEPTION (,254) FIRST
-      // SET INTEGER AS ZERO
+      // BUT THERE IS NO NUMBER BEFORE COMMA (,254)
+      // WE ASSIME IT'S A ZERO
       integer = '0'
-      // ADD A ZERO BEFORE ENTRY FOR CASES WHERE INTEGER IS NOT USED
+      // FOR CASES WHEN INTEGER IS NOT USED:
       zero = '0'
     }
     /*
@@ -51,15 +51,19 @@ module.exports = function round(input) {
       output = integer + '.00'
     }
   } else {
-      // NO COMMA
+    // NO COMMA
     if (input == undefined) {
+      // NO INPUT
       output = '-0.00'
     } else if (input == '') {
+      // NO INPUT
       output = '-0.00'
     } else {
       if (entry) {
+        // NORMAL NUMBER
         output = entry + '.00'
       } else {
+        // FOR EVERYTHING ELSE
         output = '-0.00'
       }
     }
