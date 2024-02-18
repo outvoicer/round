@@ -18,7 +18,7 @@ Number(1.265).toFixed(2) // which returns 1.26
 
 The other practical need for this library came from frontend often needing to convert Number 12.3 to '12.30'.  
 
-Also my most suggested library for calculations in JS has a somewhat complex API, and practically all I needed was rounding.  
+Also my most suggested library for calculations in JS has a somewhat complex API and practically all I needed was rounding.  
 
 ## Usage    
 ```
