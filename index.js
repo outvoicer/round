@@ -60,7 +60,7 @@ module.exports = function round(input) {
       output = '-0.00'
     } else {
       if (entry) {
-        // NORMAL NUMBER
+        // NORMAL NUMBER WITHOUT COMMA - LIKE 42
         output = entry + '.00'
       } else {
         // FOR EVERYTHING ELSE
