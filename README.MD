@@ -18,6 +18,8 @@ Number(1.265).toFixed(2) // which returns 1.26
 
 The other practical need for this library came from frontend often needing to convert Number 12.3 to '12.30'.  
 
+Also my most suggested library for calculations in JS has a somewhat complex API, and practically all I needed was rounding.  
+
 ## Usage    
 ```
 round('456.465')                        // returns '456.47'  
@@ -41,7 +43,7 @@ node test.js
 // or with nodemon
 npm run test
 ```
-  
+
 ## Errors
 Generally all isNaN input returns error ('-0.00'):   
 ✅ '', is '-0.00'               // empty entry  
