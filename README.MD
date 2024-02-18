@@ -10,10 +10,13 @@ round(1.265) // returns '1.27'
 round(-1.265) // returns '-1.27'
 ```
 
-Reasoning for the library is that JS native toFixed() uses bankers rounding and ties towards an even number:  
+Reasoning for the library is that JS native toFixed() uses bankers rounding and ties towards an even number.
+
+This can rarely, yet consistently cause surprising results:  
 
 ```
 Number(1.265).toFixed(2) // which returns 1.26
+Numbeer(2.695).toFixed(2) // returns 2.69
 ```   
 
 The other practical need for this library came from frontend often needing to convert Number 12.3 to '12.30'.  
@@ -22,7 +25,7 @@ Also my most suggested library for calculations in JS has a somewhat complex API
 
 ## Usage    
 ```
-round('456.465')                        // returns '456.47'  
+round(456.465)                        // returns '456.47'  
 round(Number(subtotal) + Number(VAT))   // returns total  
 ```  
 
