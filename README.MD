@@ -20,7 +20,7 @@ This library:
 transforms the input to string,  
 trims it,  
 replaces the first ',' with a '.'  
-  
+
 Then it:  
 performs isNaN test,  
 finds the position of comma,  
@@ -34,7 +34,7 @@ npm run test
 ```
 
 ## Errors
-Generally everything, that isNaN returns error ('-0.00'):   
+Generally all isNaN input returns error ('-0.00'):   
 ✅ '', is '-0.00'               // empty entry  
 ✅ ',' is '-0.00'               // only comma  
 ✅   is '-0.00'                 // undefined  
