@@ -1,7 +1,7 @@
 
 'use strict'
 
-const roundOverTwoDecimals = require('./roundOverTwoDecimals')
+const overTwoDecimals = require('./overTwoDecimals')
 
 module.exports = function round(input) {
   /*
@@ -39,7 +39,7 @@ module.exports = function round(input) {
     const decimals = entry.length - comma - 1
     if (decimals > 2) {
       // HAS OVER TWO DECIMALS
-      output = roundOverTwoDecimals(entry, comma, integer)
+      output = overTwoDecimals(entry, comma, integer)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
       output = zero + entry
