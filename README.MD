@@ -49,4 +49,4 @@ Generally everything, that isNaN returns error ('-0.00'):
 
 Interesting exeptions:  
 ✅ '-0.00' is '-0.00'          // input '-0.00' also returns '-0.00'  
-✅ -0.00 is '0.00'             // but -0.00 returns 0.00, as JS seams to turn -0 into 0 in the transit
+✅ -0.00 is '0.00'             // but -0.00 returns 0.00, as JS seams to turn -0 into 0 in  transit
