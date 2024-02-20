@@ -48,7 +48,7 @@ npm run test
 ```
 
 ## Input that returns error:
-round(0,05) is '-0.00'                // sending two parameters to the function  
+round(2,15) is '-0.00'                // sending two parameters to the function  
 round('.2') is '-0.00'                // Missing integer  
 round() is '-0.00'                    // undefined  
 round('1 000 000 000 ') is '-0.00'    // Numbers with spaces  
@@ -61,8 +61,8 @@ round('12:30') is '-0.00'             // Numbers that are time
 round('𑁖𑁔𑁗𑁙') is '-0.00'              // 5367 in Brahmi numberals  
 
 ## Notable exceptions:  
-round(.2)                   // returns '0.20', because JS turns .2 into 0.2. Wouldn't rely on it    
+round(-0.00)                // returns '0.00'   
 round('-0.00')              // returns '-0.00'    
 round('-0.001')             // returns '-0.00'    
-round(-0.00) is '0.00'      // because String(-0.00) returns '0'  
-round('05.501') is '05.50'  // technically correct, but one zero too much  
+round('05.501')             // returns '05.50'. Technically correct, but one zero too much  
+round(.2)                   // returns '0.20', because JS turns .2 into 0.2. Wouldn't rely on it    
