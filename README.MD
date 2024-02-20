@@ -3,7 +3,8 @@ Library for rounding with two comma precision in JS for representation of moneta
 
 Performs half way up rounding (ties away from zero).  
 Accepts JS Strings and Numbers as input.  
-Exports result as a string with two comma precision.   
+Analyzes input as a string.  
+Exports result as a stringed number with two comma precision.   
 On error returns '-0.00'.  
 
 ```
