@@ -129,9 +129,9 @@ const tests = [
   [ '8 . 501', '-0.00'],
   [ '05.501', '05.50'], // TODO
 
-//  [ '.0', '0.00'],
+//
 /*
-  // THESE DO NOT "WORK", AS -0 WILL REACH FUNCTION AS 0
+  // THESE TESTS CANNOT BE DISPLAYED, THE INPUT WILL BECOME 0 BEFORE IT REACHES THE FUNCTION
   [ -0, '-0.00'],
   [ -0.0, '-0.00'],
   [ -0.00, '-0.00'],
@@ -139,9 +139,18 @@ const tests = [
 //  [ console.log('trigger'), '-0.00' ],
 ]
 
-function doIt(input, result) {
+function doTests(input, result) {
   if (round(input) === result) {
-    console.log('✅ ' + input + ' is ' + result)
+    let comment = false
+    let type = typeof input
+    if ( type === 'string') {
+      comment = "✅ round('" + input + "') is '" + result + "'"
+    } else if (type === 'number') {
+      comment = "✅ round(" + input + ") is '" + result + "'"
+    } else {
+      comment = "✅ round(*" + input + "*) is '" + result + "'"
+    }
+    console.log(comment)
   } else {
     console.log('❌ ' + input +' should be ' + result + '. Is ' + round(input))
   }
@@ -149,14 +158,16 @@ function doIt(input, result) {
 
 for (let i = 0; i < tests.length; i++) {
   if (tests[i]) {
-    doIt(tests[i][0], tests[i][1])
+    doTests(tests[i][0], tests[i][1])
   } else {
     console.log('❌ missing input: ' + tests[i])
   }
 }
-// SPECIAL CASES
+
+// HANDLE SPECIAL CASES, WHICH CANNOT BE INVOKED FROM AN ARRAY
+// LOOKS LIKE COMMA, BUT IS TWO INPUT PARAMS:
 if (round(1,05) === '-0.00') {
-  console.log("✅ 1,05 is '-0.00'")
+  console.log("✅ round(1,05) is '-0.00'")
 } else {
   console.log("❌ 1,05 is not '-0.00'")
 }
