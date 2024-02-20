@@ -48,7 +48,8 @@ npm run test
 ```
 
 ## Errors
-Generally all isNaN input returns error ('-0.00'):   
+Generally all isNaN input returns error ('-0.00'):     
+
 ✅ '', is '-0.00'               // empty entry  
 ✅ ',' is '-0.00'               // only comma  
 ✅   is '-0.00'                 // undefined  
@@ -62,8 +63,22 @@ Generally all isNaN input returns error ('-0.00'):
 ✅ 50% is '-0.00'               // Numbers with %  
 ✅ 12:30 is '-0.00'             // Numbers that are time  
 ✅ 700_000_000 is '-0.00'       // Numbers with _ as thousand separator  
+✅ 8. 501 is '-0.00 '           // whitespace in the number
+✅ 8 .501 is '-0.00'            // whitespace
+✅ 8 . 501 is '-0.00'           // whitespace
 ✅ 𑁖𑁔𑁗𑁙 is '-0.00'              // 5367 in Brahmi numberals is also NaN  
 
-Interesting exeptions:  
+Interesting exceptions:  
 ✅ '-0.00' is '-0.00'          // input '-0.00' also returns '-0.00'  
-✅ -0.00 is '0.00'             // but -0.00 returns 0.00, as JS seams to turn -0 into 0 in  transit
+✅ -0.00 is '0.00'             // -0.00 returns 0.00, as JS seams to turn -0 into 0 in transit
+
+Exception that still need handling:  
+✅ 05.50 is '05.50'  
+
+Notable exception with comma:  
+Directly evoking round(0,05) returns '-0.00', as JS interprets comma as a separator before next function parameter.  
+
+Directly transporting 05 seams to be dangerous, as String(05) returns '5' and Number(05) return 5.
+If second parameter would be assumed to be decimals after comma, round(0,05) could return '0.50' if second parameter would be allowed.
+
+You are not likely to meet this exception, unless you use round from command line or hardcode your rounding parameters to code.

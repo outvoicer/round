@@ -3,13 +3,17 @@
 
 const overTwoDecimals = require('./overTwoDecimals')
 
-module.exports = function round(input) {
+module.exports = function round(input, secondParamater) {
+  // HANDLE PURE COMMA INPUT: round(0,5)
+  if (secondParamater) {
+    return '-0.00'
+  }
   /*
     PPEPARE input
   */
   let output = '-0.00'
+  // MAKE SURE 0 IS NOT HANDLED AS false
   if (input === 0) {
-    // MAKE SURE 0 IS NOT HANDLED AS false
     input = '0.00'
   }
   // MAKE INPUT TO A STRING, TRIM IT AND REPLACE ',' WITH '.' JUST IN CASE
