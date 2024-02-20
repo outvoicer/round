@@ -1,16 +1,15 @@
 
 Library for rounding with two comma precision in JS for representation of monetary units.  
 
+```
+round(1.265) // returns '1.27'
+round(-1.265) // returns '-1.27'
+```
 Performs half way up rounding (ties away from zero).  
 Accepts JS Strings and Numbers as input.  
 Analyzes input as a string.  
 Exports result as a string with two comma precision.   
 On error returns '-0.00'.  
-
-```
-round(1.265) // returns '1.27'
-round(-1.265) // returns '-1.27'
-```
 
 Reasoning for the library is that JS native toFixed() uses bankers rounding and ties towards an even number.  
 
