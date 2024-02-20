@@ -61,8 +61,8 @@ round('12:30') is '-0.00'             // Numbers that are time
 round('𑁖𑁔𑁗𑁙') is '-0.00'              // 5367 in Brahmi numberals  
 
 ## Notable exceptions:  
-round(.2)                   // returns '0.20', because JS turns .2 into 0.2. Don't rely on it    
+round(.2)                   // returns '0.20', because JS turns .2 into 0.2. Wouldn't rely on it    
 round('-0.00')              // returns '-0.00'    
 round('-0.001')             // returns '-0.00'    
-round(-0.00) is '0.00'      // because String(-0.00) returns '0'
+round(-0.00) is '0.00'      // because String(-0.00) returns '0'  
 round('05.501') is '05.50'  // technically correct, but one zero too much  
