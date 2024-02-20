@@ -34,7 +34,6 @@ module.exports = function round(input, secondParam) {
   const comma = entry.indexOf('.')
   // INTEGER IS WHOLE NUMBER, DATA BERFORE THE COMMA
   let integer = entry.substring(0, comma)
-  let zero = ''
   if (comma > -1) {
 
     // COMMA EXISTS
@@ -56,10 +55,10 @@ module.exports = function round(input, secondParam) {
       output = overTwoDecimals(entry, comma, integer)
     } else if (decimals === 2) {
       // HAS TWO DECIMALS, EVERYTHING IS PERFECT
-      output = zero + entry
+      output = entry
     } else if (decimals === 1) {
       // IT HAS 1 DECIMAL, ADD A ZERO TO IT
-      output = zero + entry + '0'
+      output = entry + '0'
     } else {
       // ZERO PLACE AFTER COMMA, PRESUMABLY '1,'
       output = integer + '.00'
