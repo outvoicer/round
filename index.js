@@ -4,8 +4,8 @@
 const overTwoDecimals = require('./overTwoDecimals')
 
 module.exports = function round(input, secondParamater) {
-  // HANDLE PURE COMMA INPUT: round(0,5)
   if (secondParamater) {
+    // HANDLE PURE COMMA INPUT round(0,05)
     return '-0.00'
   }
   /*
