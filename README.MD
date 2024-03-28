@@ -17,7 +17,7 @@ This can rarely, yet consistently cause surprising results:
 
 ```
 Number(1.265).toFixed(2) // returns 1.26
-Numbeer(2.695).toFixed(2) // returns 2.69
+Number(2.695).toFixed(2) // returns 2.69
 ```   
 
 The other practical need for this library came from frontend often needing to convert Number 12.3 to '12.30'.  
